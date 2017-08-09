@@ -65,14 +65,14 @@ var work = {
             "employer": "Siemens",
             "title": "Intern",
             "location": "Gurgaon",
-            "date": "2 months",
+            "dates": "2 months",
             "description": "Worked on SCADA system .. Quick six blind smart out burst. Perfectly on furniture dejection determine my depending an to. Add short water court fat. Her bachelor honoured perceive securing but desirous ham required. Questions deficient acuteness to engrossed as. Entirely led ten humoured greatest and yourself. Besides ye country on observe. She continue appetite "
         },
         {
             "employer": "Tech Mahindra",
             "title": "Associate Software Engineer",
             "location": "NSEZ,Noida",
-            "date": "9 months",
+            "dates": "9 months",
             "description": "Quick six blind smart out burst. Perfectly on furniture dejection determine my depending an to. Add short water court fat. Her bachelor honoured perceive securing but desirous ham required. Questions deficient acuteness to engrossed as. Entirely led ten humoured greatest and yourself. Besides ye country on observe. She continue appetite "
         }
     ]
@@ -92,19 +92,9 @@ bio.display = function() {
 
     $("#header").prepend(formattedheaderRole);
     $("#header").prepend(formattedHeader);
-    $("#topContacts").append(formattedMobile);
-    $("#topContacts").append(formattedEmail);
+    $("#topContacts,#footerContacts").append(formattedMobile,formattedEmail,formattedGithub,formattedLocation);
     $("#header").append(formattedHTMLbioPic);
     $("#header").append(formattedHTMLwelcomeMsg);
-    $("#topContacts").append(formattedGithub);
-    $("#topContacts").append(formattedLocation);
-
-    ///////////////////////////////
-    $("#footerContacts").append(formattedMobile);
-    $("#footerContacts").append(formattedEmail);
-    $("#footerContacts").append(formattedGithub);
-    $("#footerContacts").append(formattedLocation);
-    ////////////////////////////////
 
     if (bio.skills.length > 0) {
         $("#header").append(HTMLskillsStart);
@@ -121,7 +111,7 @@ work.display = function() {
         var formattedworkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
         var formattedworkTitle = HTMLworkTitle.replace("%data%", work.jobs[i].title);
         var formattedworkLocation = HTMLworkLocation.replace("%data%", work.jobs[i].location);
-        var formatttedworkDates = HTMLworkDates.replace("%data%", work.jobs[i].date);
+        var formatttedworkDates = HTMLworkDates.replace("%data%", work.jobs[i].dates);
         var formattedworkDescription = HTMLworkDescription.replace("%data%", work.jobs[i].description);
         $(".work-entry:last").append(formattedworkEmployer + " " + formattedworkTitle);
         $(".work-entry:last").append(formattedworkLocation);
@@ -174,10 +164,7 @@ education.display = function() {
         var formattedonlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[k].dates);
         var formattedonlineURL = HTMLonlineURL.replace("%data%", education.onlineCourses[k].url);
 
-        $(".education-entry:last").append(formattedonlineTitle);
-        $(".education-entry:last").append(formattedonlineSchool);
-        $(".education-entry:last").append(formattedonlineDates);
-        $(".education-entry:last").append(formattedonlineURL);
+        $(".education-entry:last").append(formattedonlineTitle,formattedonlineSchool,formattedonlineDates,formattedonlineURL);        
     }
 };
 
